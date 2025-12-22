@@ -6,13 +6,6 @@ name: Publish Docker Images
     tags:
       - "*"
 
-  workflow_call:
-    secrets:
-      DOCKER_HUB_TOKEN:
-        required: true
-      DOCKER_HUB_USERNAME:
-        required: true
-
   workflow_dispatch:
 
 permissions:
