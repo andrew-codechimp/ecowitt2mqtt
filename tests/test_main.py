@@ -35,15 +35,18 @@ def test_main() -> None:
 
     This is effectively a quick sanity check to ensure that the CLI doesn't blow up.
     """
-    with patch(
-        "sys.argv",
-        [
-            "ecowitt2mqtt",
-            "--mqtt-broker",
-            "127.0.0.1",
-            "--mqtt-topic",
-            "Test",
-            "--diagnostics",
-        ],
-    ), patch("ecowitt2mqtt.core.Ecowitt.async_start"):
+    with (
+        patch(
+            "sys.argv",
+            [
+                "ecowitt2mqtt",
+                "--mqtt-broker",
+                "127.0.0.1",
+                "--mqtt-topic",
+                "Test",
+                "--diagnostics",
+            ],
+        ),
+        patch("ecowitt2mqtt.core.Ecowitt.async_start"),
+    ):
         main()

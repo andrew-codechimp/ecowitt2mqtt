@@ -518,7 +518,9 @@ class HomeAssistantDiscoveryPublisher(MqttPublisher):  # pylint: disable=too-few
         )
 
         if self._config.hass_entity_id_prefix:
-            discovery.default_entity_id = f"{PLATFORM_MAP[data_point.data_type]}.{self._config.hass_entity_id_prefix}_{payload_key}"
+            platform = PLATFORM_MAP[data_point.data_type]
+            prefix = self._config.hass_entity_id_prefix
+            discovery.default_entity_id = f"{platform}.{prefix}_{payload_key}"
         if data_point.unit:
             discovery.unit_of_measurement = data_point.unit
 

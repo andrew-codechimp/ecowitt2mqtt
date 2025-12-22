@@ -173,10 +173,7 @@ async def test_publish_ecowitt_success(
     async with ClientSession() as session:
         resp = await session.request(
             "post",
-            (
-                f"http://127.0.0.1:{TEST_PORT}"
-                f"{ecowitt.configs.default_config.endpoint}"
-            ),
+            (f"http://127.0.0.1:{TEST_PORT}{ecowitt.configs.default_config.endpoint}"),
             data=device_data,
         )
 
